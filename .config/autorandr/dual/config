@@ -1,0 +1,16 @@
+output DP-4
+crtc 0
+mode 3840x2160
+pos 0x0
+primary
+rate 60.00
+x-prop-non_desktop 0
+output HDMI-0
+crtc 1
+mode 1920x1080
+pos 3840x0
+rate 60.00
+rotate right
+transform 2.000000,0.000000,0.000000,0.000000,2.000000,0.000000,0.000000,0.000000,1.000000
+transform 1.250000,0.000000,0.000000,0.000000,1.250000,0.000000,0.000000,0.000000,1.000000
+x-prop-non_desktop 0

@@ -1,0 +1,11 @@
+#!/bin/sh
+cd "$HOME"
+
+echo 'Init submodules'
+yadm submodule update --recursive --init
+
+echo 'Installing oh-my-zsh'
+if [ ! "$ZSH" ]; then
+	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+fi
+

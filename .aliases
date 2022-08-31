@@ -1,0 +1,67 @@
+alias qr='qrencode -t utf8 -o -'
+alias publicip='curl -s ifconfig.me'
+alias whereami='curl -s ifconfig.es/geo'
+alias journalctlclear='sudo journalctl --vacuum-time=1d'
+alias xclip='xclip -selection clipboard'
+alias localip="ip address | grep -Po '192\.168\.\d{1,3}\.\d{1,3}' | grep -Pv '\.255$'"
+alias writetopdf='writetopdf -s 1.6'
+alias shred='shred -u -n 1'
+
+# Force XDG convention use
+alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"'
+alias nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME:-$HOME/.config}"/nvidia/settings'
+alias mvn='mvn -gs "${XDG_CONFIG_HOME:-$HOME/.config}/maven/settings.xml"'
+export KDEHOME="${XDG_CONFIG_HOME:-$HOME/.config}/kde"
+
+# Fix system theme issues
+alias dia='GTK2_RC_FILES=/usr/share/themes/Breeze/gtk-2.0/gtkrc env dia --integrated'
+
+# aria2
+alias aria2c='aria2c --file-allocation=none -c'
+alias aria2cfast='aria2c -x16 -s16 -j16 -k1M --optimize-concurrent-downloads=true'
+
+# Spicetify-cli
+alias spicetify-fix-aur='sudo chmod a+wr /opt/spotify; sudo chmod a+wr /opt/spotify/Apps; spicetify backup apply'
+
+# LaTex
+alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
+
+# KDE
+alias plasmashell-restart='kquitapp5 plasmashell; kstart5 plasmashell'
+alias pulseaudio-create-dummy-sink='pactl load-module module-null-sink media.class=Audio/Sink sink_name=Dummy-Sink channel_map=surround-51'
+alias pulseaudio-create-network-sink='pactl load-module module-tunnel-sink "server=rpi sink_name=Network"'
+alias alert='notify-send -a Konsole -i konsole -t 3000 --urgency=normal'
+
+# FFmpeg
+alias ffmpeg='ffmpeg -hide_banner'
+alias ffprobe='ffprobe -hide_banner'
+alias ffplay='ffplay -hide_banner'
+
+# mpv
+alias mpv-webcam='mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
+
+# Python / pip
+alias pip=pip-wrapper
+alias pip3=pip-wrapper
+alias python=python3
+
+# Short renames
+alias e=exit
+alias c=clear
+
+# Override shell buildins with the GNU versions
+alias time='/usr/bin/time'
+alias watch='/usr/bin/watch'
+
+# Package manager
+alias pacman-autoremove='pacman -Rcns $(pacman -Qdtq)'
+alias pacmanlist='pacman -Q'
+alias pacmanlistmanual='pacman -Qe'
+alias yayclear='yay -Sc --aur'
+alias yaylist='pacman -Qm'
+
+# Youtube-dl
+alias yt-dlp="env yt-dlp -N8 --merge-output-format mkv -o '%(title)s.%(ext)s' \
+--abort-on-unavailable-fragment --fragment-retries 30 \
+--write-sub --sub-format best --sub-lang en,de --embed-subs"
+alias youtube-dl='yt-dlp'
