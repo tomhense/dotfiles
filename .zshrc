@@ -73,7 +73,7 @@ bindkey -M menuselect 'j' vi-down-line-or-history
 # Enable C-w vim keybinding
 autoload -U select-word-style
 select-word-style bash
-export WORDCHARS='.-/\\'
+export WORDCHARS='.-/\\ '
 
 # Enable c-i-" vim style keybinding
 autoload -Uz select-bracketed select-quoted
