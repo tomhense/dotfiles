@@ -19,3 +19,6 @@
 [submodule "cheatsheets"]
 	path = cheatsheets
 	url = git@github.com:Codedotexe/cheatsheets.git
+[submodule ".zsh-custom/plugins/zsh-bd"]
+	path = .zsh-custom/plugins/zsh-bd
+	url = https://github.com/Tarrasch/zsh-bd
