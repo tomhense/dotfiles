@@ -7,5 +7,6 @@ yadm submodule update --recursive --init
 echo 'Installing oh-my-zsh'
 if [ ! "$ZSH" ]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+	mv ~/.oh-my-zsh "${XDG_DATA_HOME:-$HOME/.local/share}"
 fi
 
