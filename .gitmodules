@@ -13,8 +13,8 @@
 [submodule ".config/zsh/plugins/zsh-completions"]
 	path = .config/zsh/plugins/zsh-completions
 	url = https://github.com/zsh-users/zsh-completions
-[submodule ".config/zsh/plugins/zsh-bd"]
-	path = .config/zsh/plugins/zsh-bd
+[submodule ".config/zsh/plugins/bd"]
+	path = .config/zsh/plugins/bd
 	url = https://github.com/Tarrasch/zsh-bd
 [submodule "scripts"]
 	path = scripts

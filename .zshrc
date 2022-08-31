@@ -1,7 +1,7 @@
 # Which plugins would you like to load?
 plugins=(git common-aliases zsh-autosuggestions zsh-syntax-highlighting autojump \
 zsh-tmux-rename tmux zsh-cursor-mode zsh-completions colorize colored-man-pages \
-extract isodate pip copypath fzf zsh-bd)
+extract isodate pip copypath fzf bd)
 
 # Activate certain plugins only when distro is arch
 if [ -f /etc/os-release ] && awk -F'=' '/^NAME/ { print $2 }' /etc/os-release | grep -q 'Arch'; then
