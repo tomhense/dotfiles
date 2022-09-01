@@ -4,9 +4,7 @@ zsh-tmux-rename tmux zsh-cursor-mode zsh-completions colorize colored-man-pages 
 extract isodate pip copypath fzf bd)
 
 # Activate certain plugins only when distro is arch
-if [ -f /etc/os-release ] && awk -F'=' '/^NAME/ { print $2 }' /etc/os-release | grep -q 'Arch'; then
-	plugins+=(archlinux konsole-autodarkmode)
-fi
+if [ "$DISTRO" = 'arch' ]; then plugins+=(archlinux); fi
 
 # Which theme to choose (best: lambda, lambda-custom, simple)
 ZSH_THEME="lambda-custom"
@@ -26,9 +24,6 @@ COMPLETION_WAITING_DOTS="true"
 # tmux plugin options
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_UNICODE=true
-
-# zbell plugin options
-zbell_duration=60
 
 # Enable zsh directory stack
 alias d='dirs -v'
@@ -57,6 +52,7 @@ setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
 setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 
+# Load oh-my-zsh (position of this line in .zshrc is not arbitary)
 source $ZSH/oh-my-zsh.sh
 
 # Use vim keybindings
@@ -95,3 +91,7 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 source "$HOME/.aliases"
+
+# Enable konsole autodarkmode script
+if [ "$XDG_CURRENT_DESKTOP" = 'KDE' ]; then konsole-autodarkmode; fi
+
