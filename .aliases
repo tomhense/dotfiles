@@ -61,7 +61,8 @@ alias yayclear='yay -Sc --aur'
 alias yaylist='pacman -Qm'
 
 # Youtube-dl
-alias yt-dlp="env yt-dlp -N8 --merge-output-format mkv -o '%(title)s.%(ext)s' \
+alias yt-dlp="yt-dlp -N8"
+alias ytdlp="env yt-dlp -N8 --merge-output-format mkv -o '%(title)s.%(ext)s' \
 --abort-on-unavailable-fragment --fragment-retries 30 \
 --write-sub --sub-format best --sub-lang en,de --embed-subs"
-alias youtube-dl='yt-dlp'
+alias youtube-dl='env yt-dlp'

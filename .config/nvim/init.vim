@@ -60,7 +60,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'joshdick/onedark.vim'
 Plug 'tomasr/molokai'
-Plug 'easymotion/vim-easymotion'
+"Plug 'easymotion/vim-easymotion'
 Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
 Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
@@ -68,13 +68,18 @@ Plug 'tpope/vim-surround'
 Plug 'brennier/quicktex'
 Plug 'mbbill/undotree'
 Plug 'scrooloose/nerdcommenter'
-Plug 'junegunn/fzf'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/jasonccox/vim-wayland-clipboard'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'peterhoeg/vim-qml'
+Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
 call plug#end()
 
 " ---------- Plugin Options --------
+
+" Start Activity Watch plugin
+"call AWStart()
 
 " let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
@@ -85,9 +90,9 @@ let g:instant_markdown_mermaid = 1
 nnoremap <F3> :NERDTreeToggle<CR>
 
 " Easymotion
-let g:EasyMotion_smartcase = 1 " Turn on case-insensitive feature
-map s <Plug>(easymotion-prefix)
-nmap <C-f> <Plug>(easymotion-overwin-f2)
+"let g:EasyMotion_smartcase = 1 " Turn on case-insensitive feature
+"map s <Plug>(easymotion-prefix)
+"nmap <C-f> <Plug>(easymotion-overwin-f2)
 
 " --------- Colorscheme -----------
 let g:rehash256 = 1
