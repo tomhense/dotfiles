@@ -1,0 +1,39 @@
+set tabstop=4               " number of columns occupied by a tab
+set softtabstop=4           " see multiple spaces as tabstops so <BS> does the right thing
+set shiftwidth=4            " width for autoindents
+set autoindent              " indent a new line the same amount as the line just typed
+set number                  " add line numbers
+set noswapfile            " disable creating swap file
+set splitbelow             " Split below
+set ssop-=options    " do not store global and local values in a session
+set ssop-=folds      " do not store folds
+tnoremap <Esc> <C-\><C-n>  " Use esc to exit terminal mode
+set clipboard=unnamedplus
+
+let mapleader=","    " Remap leader key
+set easymotion       " Enable easymotion plugin
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+
+"" -- Map IDE actions to IdeaVim -- https://jb.gg/abva4t
+"" Map \r to the Reformat Code action
+"map \r <Action>(ReformatCode)
+
+"" Map <leader>d to start debug
+"map <leader>d <Action>(Debug)
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+" Find more examples here: https://jb.gg/share-ideavimrc
