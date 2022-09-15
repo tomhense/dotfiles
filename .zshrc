@@ -92,6 +92,12 @@ bindkey -M vicmd v edit-command-line
 
 source "$HOME/.aliases"
 
-# Enable konsole autodarkmode script
-if [ "$XDG_CURRENT_DESKTOP" = 'KDE' ]; then konsole-autodarkmode; fi
+# Enable auto darkmode when using konsole
+if [ "$KONSOLE_DBUS_WINDOW" ]; then
+	if [ "$(detect-darkmode)" = 'light' ]; then
+		konsoleprofile Colorscheme=BreezeLight
+	else
+		konsoleprofile Colorscheme=MonokaiKonsole
+	fi
+fi
 
