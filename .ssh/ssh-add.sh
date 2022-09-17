@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # If socket seems stuck use `unlink $SSH_AUTH_SOCK` to unlink it
-if [ -f "$SSH_AUTH_SOCK" ]; then
+if [ -S "$SSH_AUTH_SOCK" ]; then
 	unlink "$SSH_AUTH_SOCK"
 fi
 
