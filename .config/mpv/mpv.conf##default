@@ -1,5 +1,6 @@
 hwdec=auto
 script-opts=ytdl_hook-ytdl_path=yt-dlp
+ytdl-raw-options=concurrent-fragments=4,yes-playlist=
 tscale=oversample
 autofit-larger='75%x75%'
 profile=gpu-hq
