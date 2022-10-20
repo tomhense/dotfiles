@@ -1,5 +1,6 @@
 hwdec=auto
 script-opts=ytdl_hook-ytdl_path=yt-dlp
+ytdl-format=bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best
 tscale=oversample
 autofit-larger='75%x75%'
 profile=gpu-hq
