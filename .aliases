@@ -54,7 +54,6 @@ alias time='/usr/bin/time'
 alias watch='/usr/bin/watch'
 
 # Package manager
-alias pacman-autoremove='pacman -Rcns $(pacman -Qdtq)'
 alias pacmanlist='pacman -Q'
 alias pacmanlistmanual='pacman -Qe'
 alias yayclear='yay -Sc --aur'
