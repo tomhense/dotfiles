@@ -1,10 +1,7 @@
-hwdec=auto
+hwdec=auto-copy
 script-opts=ytdl_hook-ytdl_path=yt-dlp
-<<<<<<<< HEAD:.config/mpv/mpv.conf##class.Laptop
 ytdl-format=bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best
-========
 ytdl-raw-options=concurrent-fragments=4,yes-playlist=
->>>>>>>> 09d806e3fca45b8864f6464920da420bb1d5a60f:.config/mpv/mpv.conf##default
 tscale=oversample
 autofit-larger='75%x75%'
 profile=gpu-hq
