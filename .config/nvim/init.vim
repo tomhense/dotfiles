@@ -13,7 +13,6 @@ set wildmode=longest,list   " get bash-like tab completions
 " set cc=80                  " set an 80 column border for good coding style
 syntax on                   " syntax highlighting
 set mouse=a                 " enable mouse click
-
 filetype plugin on
 " set cursorline              " highlight current cursorline
 set ttyfast                 " Speed up scrolling in Vim
@@ -33,7 +32,6 @@ set spelllang=en,de
 vnoremap < <gv
 vnoremap > >gv
 
-tnoremap <Esc> <C-\><C-n>  " Use esc to exit terminal mode
  
 filetype plugin indent on
 
@@ -76,44 +74,19 @@ Plug 'peterhoeg/vim-qml'
 
 if executable('aw-qt')  " Only install aw-watcher if aw is installed on system
 	Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
-	"call AWStart()  " Start Activity Watch plugin
 endif
-Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
-Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
+
 
 " ---------- Plugin Options --------
 
-" let g:instant_markdown_slow = 1
+" Instant markdown preview
+"let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
 let g:instant_markdown_mathjax = 1
 let g:instant_markdown_mermaid = 1
 
-" Nerdtree
-nnoremap <F3> :NERDTreeToggle<CR>
-
-" Easymotion
-"let g:EasyMotion_smartcase = 1 " Turn on case-insensitive feature
-"map s <Plug>(easymotion-prefix)
-"nmap <C-f> <Plug>(easymotion-overwin-f2)
-
-" --------- Colorscheme -----------
-let g:rehash256 = 1
-let g:onedark_termcolors = 256
-
-" Auto darkmode
-function AutoDarkmode()
-	if system('detect-darkmode') == 'light'
-		set background=light
-		colorscheme PaperColor
-	else
-		set background=dark
-		colorscheme molokai
-	endif
-endfunction
-command AutoDarkmode :call AutoDarkmode() 
-call AutoDarkmode()
-
+" Vimtex
 " Fix markdown latex synthex highlighting
 function! MathAndLiquid()
     syn region math start=/\$\$/ end=/\$\$/
@@ -152,6 +125,42 @@ let g:vimtex_syntax_conceal = {
 " Hide certain vimtex errors
 let g:vimtex_quickfix_ignore_filters = [
 	\ 'Underfull', 'Overfull', 'Undefined control sequence',
-	\ 'Missing number, treated as zero', 'Float(s) lost', 'Not in outer par mode'
+	\ 'Missing number, treated as zero', 'Float(s) lost', 'Not in outer par mode',
+	\ 'Missing "publisher"'
 \]
 let g:Tex_IgnoreLevel = 8
+
+
+" --------- Colorscheme -----------
+let g:rehash256 = 1
+let g:onedark_termcolors = 256
+
+" Auto darkmode
+function AutoDarkmode()
+	if system('detect-darkmode') == 'light'
+		set background=light
+		colorscheme PaperColor
+	else
+		set background=dark
+		colorscheme molokai
+	endif
+endfunction
+command AutoDarkmode :call AutoDarkmode() 
+call AutoDarkmode()
+
+
+" --------- Keyboard shortcuts -----------
+" Vimtex
+"nnoremap \c :VimtexCompile<cr>
+nnoremap \lc :VimtexStop<cr>:VimtexClean<cr>
+
+" Nerdtree
+nnoremap <F3> :NERDTreeToggle<CR>
+
+" Easymotion
+"let g:EasyMotion_smartcase = 1 " Turn on case-insensitive feature
+"map s <Plug>(easymotion-prefix)
+"nmap <C-f> <Plug>(easymotion-overwin-f2)
+
+tnoremap <Esc> <C-\><C-n>  " Use esc to exit terminal mode
+
