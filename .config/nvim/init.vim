@@ -78,7 +78,6 @@ if executable('aw-qt')  " Only install aw-watcher if aw is installed on system
 	Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
 	"call AWStart()  " Start Activity Watch plugin
 endif
-Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
 Plug 'catppuccin/vim', { 'as': 'catppuccin' }
 call plug#end()
 
