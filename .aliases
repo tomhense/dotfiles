@@ -65,3 +65,10 @@ alias ytdlp="env yt-dlp -N8 --merge-output-format mkv -o '%(title)s.%(ext)s' \
 --abort-on-unavailable-fragment --fragment-retries 30 \
 --write-sub --sub-format best --sub-lang en,de --embed-subs"
 alias youtube-dl='env yt-dlp'
+
+# yadm
+alias yadmst='yadm status'
+
+# Firefox
+alias firefox=firefox-developer-edition
+

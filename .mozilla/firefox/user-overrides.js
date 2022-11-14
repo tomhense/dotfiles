@@ -57,7 +57,7 @@ user_pref("browser.newtabpage.activity-stream.section.highlights.includePocket",
 // HTML5 media autoplay settings
 // [NOTE] You can set exceptions under site permissions
 // 0=Allow all, 1=Block non-muted media (default), 5=Block all
-user_pref("media.autoplay.default", 1);
+user_pref("media.autoplay.default", 0);
 
 // Override to disable autoplay if you interacted with the site
 // 0=sticky (default), 1=transient, 2=user
@@ -95,4 +95,13 @@ user_pref("extensions.pocket.enabled", false);
 
 // enforced extension signing (Nightly/ESR)
 user_pref("xpinstall.signatures.required", false); 
+
+// Disable native gtk window titlebar
+user_pref("browser.tabs.inTitlebar", 1);
+
+// High dpi settings
+//user_pref("layout.css.devPixelsPerPx", 1.0);
+
+// Don't allow webpages to use their own fonts
+user_pref("browser.display.use_document_fonts", 1.0);
 
