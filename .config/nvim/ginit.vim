@@ -16,7 +16,7 @@ endif
 "nmap <F3> :GuiTreeviewToggle<CR>
 
 " Enable adjusting fontsize with mouse wheel
-let s:fontsize = 16
+let s:fontsize = 10
 function! AdjustFontSize(amount)
   let s:fontsize = s:fontsize+a:amount
   :execute "GuiFont! Source Code Pro:h" . s:fontsize

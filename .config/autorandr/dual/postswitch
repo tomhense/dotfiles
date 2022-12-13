@@ -1,6 +1,0 @@
-#!/bin/sh
-
-# Fix background scale issue
-sleep 1
-#qdbus org.kde.plasmashell /PlasmaShell org.kde.PlasmaShell.refreshCurrentShell
-

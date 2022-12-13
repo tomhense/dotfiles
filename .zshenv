@@ -35,9 +35,13 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 # Plasma options
 export GDK_DPI_SCALE=1.25
 export PLASMA_USE_QT_SCALING=1 # For 4K monitor
-#export GTK_USE_PORTAL=1 # Needs xdg-portal-kde package to work
+export GTK_USE_PORTAL=1 # Needs xdg-portal-kde package to work
 #export __GL_MaxFramesAllowed=1 # Fix tearing
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1 # Fix sizing problems
+
+# Expermimental Qt highdpi options (>=Qt 6.4)
+export QT_WIDGETS_HIGHDPI_DOWNSCALE=1
+export QT_WIDGETS_RHI=1
 
 # Editor
 export VISUAL=nvim
