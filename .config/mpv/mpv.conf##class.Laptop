@@ -1,7 +1,8 @@
 hwdec=auto-copy
 script-opts=ytdl_hook-ytdl_path=yt-dlp
+screenshot-directory="~/Downloads"
 ytdl-format=bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best
-ytdl-raw-options=concurrent-fragments=4,yes-playlist=
+ytdl-raw-options=yes-playlist=
 tscale=oversample
 autofit-larger='75%x75%'
 profile=gpu-hq
