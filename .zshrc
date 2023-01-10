@@ -95,7 +95,7 @@ source "$HOME/.aliases"
 # Enable auto darkmode when using konsole
 if [ "$KONSOLE_DBUS_WINDOW" ]; then
 	if [ "$(detect-darkmode)" = 'light' ]; then
-		konsoleprofile Colorscheme=BreezeLight
+		konsoleprofile Colorscheme=BlackOnWhiteFixed
 	else
 		konsoleprofile Colorscheme=MonokaiKonsole
 	fi
