@@ -32,7 +32,7 @@ user_pref("browser.sessionstore.privacy_level", 0);  // 1003 optional to restore
 user_pref("privacy.clearOnShutdown.history", false);  // 2811
 
 // Enable hardware acceleration
-//user_pref("media.ffmpeg.vaapi.enabled", true);
+user_pref("media.ffmpeg.vaapi.enabled", true);
 
 // Customize where new tabs are located in the tab bar
 user_pref("browser.tabs.insertAfterCurrent", true);  // Open Related Tabs Next to Current, Others at the End of the Bar (default is false)
@@ -104,4 +104,3 @@ user_pref("browser.tabs.inTitlebar", 1);
 
 // Don't allow webpages to use their own fonts
 user_pref("browser.display.use_document_fonts", 1.0);
-
