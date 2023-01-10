@@ -80,6 +80,11 @@ call plug#end()
 
 " ---------- Plugin Options --------
 
+" Nerdtree
+" Open in new tab by default
+let NERDTreeMapOpenInTab='\r'
+let NERDTreeMapOpenInTab='<ENTER>'
+
 " Instant markdown preview
 "let g:instant_markdown_slow = 1
 let g:instant_markdown_autostart = 0
