@@ -44,7 +44,7 @@ HISTFILE="$HOME/.zsh_history"
 setopt appendhistory
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
 setopt SHARE_HISTORY             # Share history between all sessions.
-setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
+#setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
 setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
 setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 #setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.

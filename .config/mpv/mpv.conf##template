@@ -1,0 +1,27 @@
+hwdec=auto-copy
+demuxer-max-bytes=307200KiB
+screenshot-directory="~/Downloads"
+tscale=oversample
+autofit-larger='75%x75%'
+video-sync=display-resample
+interpolation
+input-media-keys=yes
+save-position-on-quit=yes
+sid=no
+osd-font-size=21
+x11-bypass-compositor=no
+
+# Youtube-dl options
+ytdl-raw-options=yes-playlist=
+script-opts=ytdl_hook-ytdl_path=yt-dlp
+
+{% if yadm.class == "Laptop" %}
+# We don't need 4K video on my laptop
+ytdl-format=bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best
+{% else %}
+# Use high quality video options
+profile=gpu-hq
+scale=ewa_lanczossharp
+cscale=ewa_lanczossharp
+{% endif %}
+

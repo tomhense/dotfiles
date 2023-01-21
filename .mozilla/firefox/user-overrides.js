@@ -14,7 +14,7 @@ user_pref("network.http.referer.XOriginPolicy", 0);
 user_pref("webgl.disabled", false);
 
 // Override 4501 to disable Resist Fingerprinting feature
-//user_pref("privacy.resistFingerprinting", false);
+user_pref("privacy.resistFingerprinting", false);
 
 // Override 4504 to disable letterboxing
 user_pref("privacy.resistFingerprinting.letterboxing", false);
@@ -104,3 +104,7 @@ user_pref("browser.tabs.inTitlebar", 1);
 
 // Don't allow webpages to use their own fonts
 user_pref("browser.display.use_document_fonts", 1.0);
+
+// Workaround to stop unneeded window repaints on wayland
+user_pref("widget.wayland.vsync.enabled", false);
+

@@ -73,7 +73,7 @@ Plug 'NLKNguyen/papercolor-theme'
 Plug 'peterhoeg/vim-qml'
 
 if executable('aw-qt')  " Only install aw-watcher if aw is installed on system
-	Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
+	"Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
 endif
 call plug#end()
 
