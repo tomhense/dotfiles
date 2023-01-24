@@ -1,5 +1,4 @@
 hwdec=auto-copy
-demuxer-max-bytes=307200KiB
 screenshot-directory="~/Downloads"
 tscale=oversample
 autofit-larger='75%x75%'
@@ -15,10 +14,16 @@ x11-bypass-compositor=no
 ytdl-raw-options=yes-playlist=
 script-opts=ytdl_hook-ytdl_path=yt-dlp
 
-{% if yadm.class == "Laptop" %}
+{% if yadm.class == "laptop" %}
+# Use 300MiB cache
+demuxer-max-bytes=300MiB
+
 # We don't need 4K video on my laptop
 ytdl-format=bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best
 {% else %}
+# Use 1GiB cache
+demuxer-max-bytes=1GiB
+
 # Use high quality video options
 profile=gpu-hq
 scale=ewa_lanczossharp
