@@ -1,12 +1,24 @@
 #!/bin/sh
-cd "$HOME"
+cd "$HOME" || { echo 'Changing into home directory failed' >&2 ; exit 1 ;}
 
+# Init git submodules
 echo 'Init submodules'
 yadm submodule update --recursive --init
 
+# Install oh-my-zsh (only if current shell is ZSH)
 echo 'Installing oh-my-zsh'
 if [ ! "$ZSH" ]; then
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 	mv ~/.oh-my-zsh "${XDG_DATA_HOME:-$HOME/.local/share}"
 fi
+
+# Install mpv scripts
+echo 'Installing mpv scripts'
+curl --output-dir ~/.config/mpv/scripts 'https://raw.githubusercontent.com/kism/mpvscripts/main/scripts/vlcaspectratio.lua'
+curl --output-dir ~/.config/mpv/scripts 'https://raw.githubusercontent.com/kism/mpvscripts/main/scripts/vlccrop.lua'
+curl --output-dir ~/.config/mpv/scripts 'https://raw.githubusercontent.com/mpv-player/mpv/master/TOOLS/lua/acompressor.lua'
+curl --output-dir ~/.config/mpv/scripts 'https://raw.githubusercontent.com/mpv-player/mpv/master/TOOLS/lua/autocrop.lua'
+curl --output-dir ~/.config/mpv/scripts 'https://raw.githubusercontent.com/CogentRedTester/mpv-coverart/master/coverart.conf'
+curl --output-dir ~/.config/mpv/scripts 'https://gist.githubusercontent.com/ntasos/d1d846abd7d25e4e83a78d22ee067a22/raw/kdialog-open-files.lua'
+curl --output-dir ~/.config/mpv/scripts 'https://gist.githubusercontent.com/avih/41acff712abd32e1f436235388c8b523/raw/equalizer.lua'
 
