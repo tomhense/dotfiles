@@ -93,11 +93,14 @@ bindkey -M vicmd v edit-command-line
 source "$HOME/.aliases"
 
 # Enable auto darkmode when using konsole
-if [ "$KONSOLE_DBUS_WINDOW" ]; then
-	if [ "$(detect-darkmode)" = 'light' ]; then
-		konsoleprofile Colorscheme=BlackOnWhiteFixed
-	else
-		konsoleprofile Colorscheme=MonokaiKonsole
+konsole-auto-darkmode() {
+	if [ "$KONSOLE_DBUS_WINDOW" ]; then
+		if [ "$(detect-darkmode)" = 'light' ]; then
+			konsoleprofile Colorscheme=BlackOnWhiteFixed
+		else
+			konsoleprofile Colorscheme=MonokaiKonsole
+		fi
 	fi
-fi
+}
+konsole-auto-darkmode
 
