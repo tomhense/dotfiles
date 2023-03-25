@@ -105,6 +105,9 @@ user_pref("browser.tabs.inTitlebar", 1);
 // Don't allow webpages to use their own fonts
 user_pref("browser.display.use_document_fonts", 1.0);
 
-// Workaround to stop unneeded window repaints on wayland
-user_pref("widget.wayland.vsync.enabled", false);
+// Workaround to stop unneeded window repaints on wayland (I think this is fixed now?)
+//user_pref("widget.wayland.vsync.enabled", false);
+
+// Enable switching tabs by scrolling in the tabbar (like in chrome)
+user_pref("toolkit.tabbox.switchByScrolling", true);
 

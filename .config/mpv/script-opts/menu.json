@@ -1,0 +1,22 @@
+[
+  {
+    "label": "Invert colors",
+    "command": ["vf", "toggle" ,"negate"]
+  },
+  {
+    "label": "NVScaler",
+    "command": ["change-list", "glsl-shaders", "set", "~~/shaders/NVScaler.glsl"]
+  },
+  {
+    "label": "NVSharpen",
+    "command": ["change-list", "glsl-shaders", "set", "~~/shaders/NVSharpen.glsl"]
+  },
+  {
+    "label": "SSimSuperRes",
+    "command": ["change-list", "glsl-shaders", "set", "~~/shaders/SSimSuperRes.glsl"]
+  },
+  {
+    "label": "Black and White",
+    "command": ["vf", "toggle", "hue=s=0"]
+  }
+]

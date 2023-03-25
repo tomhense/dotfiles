@@ -71,6 +71,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'https://github.com/jasonccox/vim-wayland-clipboard'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'peterhoeg/vim-qml'
+Plug 'neovim/nvim-lspconfig'
 
 if executable('aw-qt')  " Only install aw-watcher if aw is installed on system
 	"Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
@@ -137,17 +138,20 @@ let g:Tex_IgnoreLevel = 8
 
 
 " --------- Colorscheme -----------
-let g:rehash256 = 1
+"let g:molokai_original = 1 " Use gray background for molokai (instead of black)
+"let g:rehash256 = 1 " Alternative molokai color scheme
 let g:onedark_termcolors = 256
 
 " Auto darkmode
 function AutoDarkmode()
-	if system('detect-darkmode') == 'light'
-		set background=light
-		colorscheme PaperColor
-	else
-		set background=dark
-		colorscheme molokai
+	if trim(system('tput colors')) == '256'
+		if trim(system('detect-darkmode')) == 'light'
+			set background=light
+			colorscheme PaperColor
+		else
+			set background=dark
+			colorscheme molokai
+		endif
 	endif
 endfunction
 command AutoDarkmode :call AutoDarkmode() 
@@ -168,4 +172,7 @@ nnoremap <F3> :NERDTreeToggle<CR>
 "nmap <C-f> <Plug>(easymotion-overwin-f2)
 
 tnoremap <Esc> <C-\><C-n>  " Use esc to exit terminal mode
+
+" Execute lua scripts
+lua require("lsp")
 
