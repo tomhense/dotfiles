@@ -1,0 +1,22 @@
+[4248d458-61a4-47d2-9ff7-e7e7854b470e]
+Description=Application settings for primenote
+above=true
+aboverule=2
+activity=00000000-0000-0000-0000-000000000000
+activityrule=3
+types=1
+wmclass=primenote
+wmclasscomplete=true
+wmclassmatch=2
+
+[72bc2167-49bc-491b-a224-f41be16c3636]
+Description=Application settings for spotify
+activity=00000000-0000-0000-0000-000000000000
+activityrule=3
+clientmachine=localhost
+wmclass=spotify
+wmclassmatch=1
+
+[General]
+count=2
+rules=4248d458-61a4-47d2-9ff7-e7e7854b470e,72bc2167-49bc-491b-a224-f41be16c3636
