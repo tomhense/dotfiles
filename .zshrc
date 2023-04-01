@@ -25,6 +25,10 @@ COMPLETION_WAITING_DOTS="true"
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_UNICODE=true
 
+# Disable loading of magic functions (disables url-quote-magic)
+# Stop urls getting escaped when pasting them inside quotes but unfortunatly also when pasting them outside of quotes
+DISABLE_MAGIC_FUNCTIONS=true 
+
 # Enable zsh directory stack
 alias d='dirs -v'
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
