@@ -144,7 +144,7 @@ let g:onedark_termcolors = 256
 
 " Auto darkmode
 function AutoDarkmode()
-	if trim(system('tput colors')) == '256'
+	if trim(system('tput colors')) == "256" || empty($TERM)
 		if trim(system('detect-darkmode')) == 'light'
 			set background=light
 			colorscheme PaperColor
