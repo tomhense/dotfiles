@@ -34,6 +34,7 @@ export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
+#export MOZ_USE_XINPUT2=1 # Enhance touchpad scrolling on X11
 
 # Plasma options
 #export GDK_DPI_SCALE=1.25
