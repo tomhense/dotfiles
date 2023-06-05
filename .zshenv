@@ -22,7 +22,7 @@ if [ -d ~/perl5 ]; then
 fi
 
 # NPM
-NPM_PACKAGES="${XDG_DATA_HOME:-$HOME/.local/share}/.npm-packages"
+NPM_PACKAGES="${XDG_DATA_HOME:-$HOME/.local/share}/.npm"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
 # Path
@@ -51,6 +51,9 @@ export GTK_USE_PORTAL=1 # Needs xdg-portal-kde package to work
 export VISUAL=nvim
 export EDITOR=nvim
 
+# User nvim as the man pager
+export MANPAGER='nvim +Man\!'
+
 # Other
 export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
@@ -69,4 +72,5 @@ export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export TEXMFHOME="${XDG_DATA_HOME:-$HOME/.local/share}/texmf"
 export TEXMFVAR="${XDG_CACHE_HOME:-$HOME/.cache}/texlive/texmf-var"
 export TEXMFCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/texlive/texmf-config"
+export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/docker"
 

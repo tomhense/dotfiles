@@ -12,7 +12,7 @@ x11-bypass-compositor=no
 
 # Youtube-dl options
 ytdl-raw-options=yes-playlist=
-script-opts=ytdl_hook-ytdl_path=yt-dlp
+script-opts-append=ytdl_hook-try_ytdl_first=yes
 
 {% if yadm.class == "laptop" %}
 # Use 300MiB cache

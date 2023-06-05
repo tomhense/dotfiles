@@ -6,6 +6,7 @@ alias xclip='xclip -selection clipboard'
 alias localip="ip address | grep -Po '192\.168\.\d{1,3}\.\d{1,3}' | grep -Pv '\.255$'"
 alias writetopdf='writetopdf -s 1.6'
 alias shred='shred -u -n 1'
+alias ssh-no-pubkey="ssh -o 'PubkeyAuthentication=no'"
 
 # Force XDG convention use
 alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"'
@@ -27,7 +28,7 @@ alias spicetify-fix-aur='sudo chmod a+wr /opt/spotify; sudo chmod a+wr /opt/spot
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 # KDE
-alias plasmashell-restart='kquitapp5 plasmashell; kstart5 plasmashell'
+alias plasmashell-restart='plasmashell --replace'
 alias pulseaudio-create-dummy-sink='pactl load-module module-null-sink media.class=Audio/Sink sink_name=Dummy-Sink channel_map=surround-51'
 alias pulseaudio-create-network-sink='pactl load-module module-tunnel-sink "server=rpi sink_name=Network"'
 alias alert='notify-send -a Konsole -i konsole -t 3000 --urgency=normal'
@@ -60,10 +61,8 @@ alias yayclear='yay -Sc --aur'
 alias yaylist='pacman -Qm'
 
 # Youtube-dl
-alias yt-dlp="yt-dlp -N8"
-alias ytdlp="env yt-dlp -N8 --merge-output-format mkv -o '%(title)s.%(ext)s' \
---abort-on-unavailable-fragment --fragment-retries 30 \
---write-sub --sub-format best --sub-lang en,de --embed-subs"
+alias yt-dlp="yt-dlp -N8 --no-mtime --merge-output-format mkv -o '%(title)s.%(ext)s' --abort-on-unavailable-fragment --fragment-retries 30 --no-part --windows-filenames --embed-chapters"
+alias yt-dlp-subs="yt-dlp --write-sub --sub-format best --sub-lang en,de --embed-subs"
 alias youtube-dl='env yt-dlp'
 
 # yadm
@@ -71,4 +70,7 @@ alias yadmst='yadm status'
 
 # Firefox
 alias firefox=firefox-developer-edition
+
+# Clean history
+alias history-nsfw-filter="grep -iPv 'nsfwalbum|pornhub|porndig|eporner|porntrex|xhamster|yt-dlp|ytdlp|gallery-dl|instaloader' ~/.zsh_history > ~/.zsh_history.tmp && env mv ~/.zsh_history.tmp ~/.zsh_history"
 

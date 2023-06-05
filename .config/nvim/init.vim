@@ -72,6 +72,7 @@ Plug 'https://github.com/jasonccox/vim-wayland-clipboard'
 Plug 'NLKNguyen/papercolor-theme'
 Plug 'peterhoeg/vim-qml'
 Plug 'neovim/nvim-lspconfig'
+Plug 'karb94/neoscroll.nvim'
 
 if executable('aw-qt')  " Only install aw-watcher if aw is installed on system
 	"Plug 'https://github.com/ActivityWatch/aw-watcher-vim'
@@ -80,6 +81,9 @@ call plug#end()
 
 
 " ---------- Plugin Options --------
+
+" Setup neoscroll
+lua require('neoscroll').setup()
 
 " Nerdtree
 " Open in new tab by default
