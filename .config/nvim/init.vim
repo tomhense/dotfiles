@@ -61,7 +61,6 @@ Plug 'tomasr/molokai'
 "Plug 'easymotion/vim-easymotion'
 Plug 'lervag/vimtex'
 Plug 'ervandew/supertab'
-Plug 'iamcco/markdown-preview.nvim', { 'do': 'cd app && yarn install'  }
 Plug 'tpope/vim-surround'
 Plug 'brennier/quicktex'
 Plug 'mbbill/undotree'

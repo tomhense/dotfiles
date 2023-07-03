@@ -16,6 +16,10 @@
     "command": ["change-list", "glsl-shaders", "set", "~~/shaders/SSimSuperRes.glsl"]
   },
   {
+    "label": "FSRCNN",
+    "command": ["change-list", "glsl-shaders", "set", "~~/shaders/FSRCNNX_x2_16-0-4-1.glsl"]
+  },
+  {
     "label": "Black and White",
     "command": ["vf", "toggle", "hue=s=0"]
   }

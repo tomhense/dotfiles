@@ -22,7 +22,7 @@ if [ -d ~/perl5 ]; then
 fi
 
 # NPM
-NPM_PACKAGES="${XDG_DATA_HOME:-$HOME/.local/share}/.npm"
+NPM_PACKAGES="${XDG_DATA_HOME:-$HOME/.local/share}/npm"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
 # Path
@@ -30,7 +30,7 @@ export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.cargo/bin:$NPM_PACKAGES/bin:/
 
 # Java options
 export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on"
+export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Djava.util.prefs.userRoot='$XDG_CONFIG_HOME/java'"
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
@@ -73,4 +73,7 @@ export TEXMFHOME="${XDG_DATA_HOME:-$HOME/.local/share}/texmf"
 export TEXMFVAR="${XDG_CACHE_HOME:-$HOME/.cache}/texlive/texmf-var"
 export TEXMFCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/texlive/texmf-config"
 export DOCKER_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/docker"
-
+export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
+export GOMODCACHE="${XDG_CACHE_HOME:-$HOME/.cache}/go/mod"
+export DVDCSS_CACHE="${XDG_DATA_HOME:-$HOME/.local/share}/dvdcss"
+export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
