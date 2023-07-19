@@ -1,14 +1,26 @@
 # All default keybindings https://raw.githubusercontent.com/mpv-player/mpv/master/etc/input.conf
 
+# Seek 1 second using pageup/-down
 PGUP no-osd seek 1 exact
 PGDWN no-osd seek -1 exact
 
+# Unbind seek using shift + pageup/-down
 SHIFT+PGUP ignore 
 SHIFT+PGDWN ignore
 
+# Change chapters using shift + left/right
 Shift+LEFT add chapter -1
 Shift+RIGHT add chapter 1
 
+# Toggle mono audio using Ctrl+m
 Ctrl+m af toggle "lavfi=[pan=1c|c0=0.5*c0+0.5*c1]" ; show-text "Audio mix set to Mono"
 
-Ctrl+n vf toggle negate
+{% if yadm.class == "laptop" %}
+# Unbind mouse wheel seek
+WHEEL_UP ignore
+WHEEL_DOWN ignore
+
+# Unbind mouse wheel volume
+WHEEL_LEFT ignore
+WHEEL_RIGHT ignore
+{% endif %}
