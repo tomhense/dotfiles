@@ -25,12 +25,18 @@ fi
 NPM_PACKAGES="${XDG_DATA_HOME:-$HOME/.local/share}/npm"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 
+# Android
+export ANDROID_HOME="$HOME/Android/Sdk"
+
 # Path
-export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.cargo/bin:$NPM_PACKAGES/bin:/opt/cuda/bin:/usr/bin/sbin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.cargo/bin:$NPM_PACKAGES/bin:/opt/cuda/bin:/usr/bin/sbin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 
 # Java options
 export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'
-export _JAVA_OPTIONS="-Dawt.useSystemAAFontSettings=on -Djava.util.prefs.userRoot='$XDG_CONFIG_HOME/java'"
+# WARNING: I have observed the _JAVA_OPTIONS variable causing some very weird crashes while
+# building some gradle libraries and it generally seems to be unsupported. When you need to use it, consider
+# setting it only for a particular program (e.g. put it into the .desktop file of the program).
+#export _JAVA_OPTIONS=" -Djava.util.prefs.userRoot='$XDG_CONFIG_HOME/java -Dawt.useSystemAAFontSettings=on"
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1

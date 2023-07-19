@@ -28,7 +28,7 @@ alias spicetify-fix-aur='sudo chmod a+wr /opt/spotify; sudo chmod a+wr /opt/spot
 alias tlmgr='/usr/share/texmf-dist/scripts/texlive/tlmgr.pl --usermode'
 
 # KDE
-alias plasmashell-restart='plasmashell --replace'
+alias plasmashell-restart='plasmashell --replace >/dev/null 2>&1 &; disown'
 alias pulseaudio-create-dummy-sink='pactl load-module module-null-sink media.class=Audio/Sink sink_name=Dummy-Sink channel_map=surround-51'
 alias pulseaudio-create-network-sink='pactl load-module module-tunnel-sink "server=rpi sink_name=Network"'
 alias alert='notify-send -a Konsole -i konsole -t 3000 --urgency=normal'
@@ -40,11 +40,6 @@ alias ffplay='ffplay -hide_banner'
 
 # mpv
 alias mpv-webcam='mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0'
-
-# Python / pip
-alias pip=pip-wrapper
-alias pip3=pip-wrapper
-alias python=python3
 
 # Short renames
 alias e=exit
