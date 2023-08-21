@@ -19,11 +19,14 @@ script-opts-append=ytdl_hook-try_ytdl_first=yes
 demuxer-max-bytes=300MiB
 
 # We don't need 4K video on my laptop
-ytdl-format=bestvideo[height<=?1440][vcodec!=?vp9]+bestaudio/best
+ytdl-format=bestvideo[height<=?1440][vcodec!=?vp09][vcodec!*=av01]+bestaudio/best
 
 {% else %}
 # Use 1GiB cache
 demuxer-max-bytes=1GiB
+
+# Disable av1
+ytdl-format=bestvideo[height<=?1440][vcodec!*=av01]+bestaudio/best
 
 # Use high quality video options
 profile=gpu-hq
