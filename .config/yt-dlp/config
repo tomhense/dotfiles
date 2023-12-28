@@ -1,0 +1,40 @@
+# Don't touch the files modified timestamp
+#--no-mtime
+
+# Use multimple http connections
+--concurrent-fragments 4
+
+# Format options
+--merge-output-format mkv 
+
+# Don't allow mangled files
+--abort-on-unavailable-fragment
+
+# Retry fragments often
+--fragment-retries 30
+
+# Store fragments in a temporary directory
+--paths temp:~/.cache
+
+# Don't continue partially downloaded fragments (instead redownload them)
+--no-part
+
+# Load cookies
+--cookies-from-browser firefox
+
+# Set output template and make filenames safe for windows
+-o '%(title)s.%(ext)s'
+--windows-filenames
+
+# Embed chapters
+--embed-chapters
+
+# Support netrc authentification using kwallet to store the credentials
+# In the kwallet create a folder named ytdlp and in that create entries with the name of the extractor, the value needs to be in the special netrc format (please consult the yt-dlp wiki)
+--netrc-cmd 'kwallet-query -f ytdlp -r {} kdewallet'
+
+# Embed subtitles
+#--write-sub
+#--sub-format best
+#--sub-lang en,de
+#--embed-subs
