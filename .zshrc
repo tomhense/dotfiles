@@ -94,6 +94,9 @@ autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
+# Use mcfly for command history
+eval "$(mcfly init zsh)"
+
 source "$HOME/.aliases"
 
 # Enable auto darkmode when using konsole
@@ -101,8 +104,10 @@ konsole-auto-darkmode() {
 	if [ "$KONSOLE_DBUS_WINDOW" ]; then
 		if [ "$(detect-darkmode)" = 'light' ]; then
 			konsoleprofile Colorscheme=BlackOnWhiteFixed
+			export MCFLY_LIGHT=TRUE
 		else
 			konsoleprofile Colorscheme=MonokaiKonsole
+			export MCFLY_LIGHT=FALSE
 		fi
 	fi
 }

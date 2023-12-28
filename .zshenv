@@ -21,6 +21,9 @@ if [ -d ~/perl5 ]; then
 	export PATH="$PATH:$HOME/perl5/bin"
 fi
 
+# McFly options
+export MCFLY_RESULTS=50
+
 # NPM
 NPM_PACKAGES="${XDG_DATA_HOME:-$HOME/.local/share}/npm"
 NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
@@ -29,7 +32,7 @@ NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
 export ANDROID_HOME="$HOME/Android/Sdk"
 
 # Path
-export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.cargo/bin:$NPM_PACKAGES/bin:/opt/cuda/bin:/usr/bin/sbin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.local/share/cargo/bin:$HOME/.cargo/bin:$NPM_PACKAGES/bin:/opt/cuda/bin:/usr/bin/sbin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 
 # Java options
 export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'

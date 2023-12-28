@@ -8,6 +8,9 @@ alias writetopdf='writetopdf -s 1.6'
 alias shred='shred -u -n 1'
 alias ssh-no-pubkey="ssh -o 'PubkeyAuthentication=no'"
 
+# Use the perl-rename instead of the default util-linux rename if installed
+command -v perl-rename >/dev/null && alias rename=perl-rename
+
 # Force XDG convention use
 alias wget='wget --hsts-file="${XDG_CACHE_HOME:-$HOME/.cache}/wget-hsts"'
 alias nvidia-settings='nvidia-settings --config="${XDG_CONFIG_HOME:-$HOME/.config}"/nvidia/settings'
@@ -56,15 +59,17 @@ alias yayclear='yay -Sc --aur'
 alias yaylist='pacman -Qm'
 
 # Youtube-dl
-alias yt-dlp="yt-dlp --no-mtime --merge-output-format mkv -o '%(title)s.%(ext)s' --abort-on-unavailable-fragment --fragment-retries 30 --no-part --windows-filenames --embed-chapters"
 alias yt-dlp-subs="yt-dlp --write-sub --sub-format best --sub-lang en,de --embed-subs"
-alias youtube-dl='env yt-dlp'
+alias youtube-dl='yt-dlp'
 
 # yadm
 alias yadmst='yadm status'
 
 # Firefox
 alias firefox=firefox-developer-edition
+
+# Use better jdupes (better fork) instead of fdupes
+alias fdupes=jdupes
 
 # Clean history
 alias history-nsfw-filter="grep -iPv 'nsfwalbum|pornhub|porndig|eporner|porntrex|xhamster|yt-dlp|ytdlp|gallery-dl|instaloader' ~/.zsh_history > ~/.zsh_history.tmp && env mv ~/.zsh_history.tmp ~/.zsh_history"
