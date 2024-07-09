@@ -7,6 +7,7 @@ alias localip="ip address | grep -Po '192\.168\.\d{1,3}\.\d{1,3}' | grep -Pv '\.
 alias writetopdf='writetopdf -s 1.6'
 alias shred='shred -u -n 1'
 alias ssh-no-pubkey="ssh -o 'PubkeyAuthentication=no'"
+alias convert='magick'
 
 # Use the perl-rename instead of the default util-linux rename if installed
 command -v perl-rename >/dev/null && alias rename=perl-rename
@@ -69,8 +70,10 @@ alias yadmst='yadm status'
 alias firefox=firefox-developer-edition
 
 # Use better jdupes (better fork) instead of fdupes
-alias fdupes=jdupes
+#alias fdupes=jdupes
 
 # Clean history
 alias history-nsfw-filter="grep -iPv 'nsfwalbum|pornhub|porndig|eporner|porntrex|xhamster|yt-dlp|ytdlp|gallery-dl|instaloader' ~/.zsh_history > ~/.zsh_history.tmp && env mv ~/.zsh_history.tmp ~/.zsh_history"
 
+# Use sudo -E vi instead of sudoedit
+alias sudoedit="sudo -E vi"

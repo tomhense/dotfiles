@@ -14,7 +14,7 @@
 --fragment-retries 30
 
 # Store fragments in a temporary directory
---paths temp:~/.cache
+--paths temp:~/.cache/yt-dlp
 
 # Don't continue partially downloaded fragments (instead redownload them)
 --no-part
@@ -23,7 +23,7 @@
 --cookies-from-browser firefox
 
 # Set output template and make filenames safe for windows
--o '%(title)s.%(ext)s'
+#-o '%(title)s.%(ext)s'
 --windows-filenames
 
 # Embed chapters

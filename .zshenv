@@ -23,10 +23,10 @@ fi
 
 # McFly options
 export MCFLY_RESULTS=50
-
-# NPM
-NPM_PACKAGES="${XDG_DATA_HOME:-$HOME/.local/share}/npm"
-NODE_PATH="$NPM_PACKAGES/lib/node_modules:$NODE_PATH"
+export MCFLY_RESULTS_SORT=LAST_RUN
+export MCFLY_DISABLE_MENU=TRUE
+export MCFLY_FUZZY=0
+export MCFLY_KEY_SCHEME=vim
 
 # Android
 export ANDROID_HOME="$HOME/Android/Sdk"
@@ -46,15 +46,23 @@ export MOZ_ENABLE_WAYLAND=1
 #export MOZ_USE_XINPUT2=1 # Enhance touchpad scrolling on X11
 
 # Plasma options
+#export KWIN_DRM_DISABLE_TRIPLE_BUFFERING=1
+#export POWERDEVIL_NO_DDCUTIL=1 # Fix powerdevil bug
 #export GDK_DPI_SCALE=1.25
 #export PLASMA_USE_QT_SCALING=1 # For 4K monitor
 export GTK_USE_PORTAL=1 # Needs xdg-portal-kde package to work
 #export __GL_MaxFramesAllowed=1 # Fix tearing
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1 # Fix sizing problems
 
+# Because Libreoffice looks shit in high dpi currently without this
+SAL_USE_VCLPLUGIN=gtk3
+
 # Expermimental Qt highdpi options (>=Qt 6.4)
 #export QT_WIDGETS_HIGHDPI_DOWNSCALE=1
 #export QT_WIDGETS_RHI=1
+
+# Electron
+export ELECTRON_OZONE_PLATFORM_HINT=auto # Enable wayland (auto, wayland)
 
 # Editor
 export VISUAL=nvim
@@ -77,7 +85,7 @@ export GTK2_RC_FILES="${XDG_CONFIG_HOME:-$HOME/.config}/gtkrc-2.0"
 export GRADLE_USER_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/gradle"
 export CUDA_CACHE_PATH="${XDG_CACHE_HOME:-$HOME/.cache}/nv"
 export CARGO_HOME="${XDG_DATA_HOME:-$HOME/.local/share}/cargo"
-export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
+#export NPM_CONFIG_USERCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/npm/npmrc"
 export TEXMFHOME="${XDG_DATA_HOME:-$HOME/.local/share}/texmf"
 export TEXMFVAR="${XDG_CACHE_HOME:-$HOME/.cache}/texlive/texmf-var"
 export TEXMFCONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/texlive/texmf-config"
