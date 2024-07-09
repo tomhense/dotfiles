@@ -4,7 +4,7 @@ require'lspconfig'.pylsp.setup{
 			plugins = {
 				pycodestyle = {
 					ignore = {'W391','W191'},
-					maxLineLength = 100
+					maxLineLength = 500
 				},
 				autopep8 = {
 					enabled = true
