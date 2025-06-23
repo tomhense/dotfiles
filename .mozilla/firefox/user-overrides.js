@@ -123,3 +123,6 @@ user_pref("reader.parse-on-load.force-enabled", true);
 // Use os locale settings
 user_pref("intl.regional_prefs.use_os_locales", true);
 
+// Enable change numbers by mouse wheel
+user_pref("dom.input.number_and_range_modified_by_mousewheel", true);
+

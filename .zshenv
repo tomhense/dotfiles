@@ -5,6 +5,10 @@ export XDG_STATE_HOME="$HOME/.local/state"
 export XDG_CACHE_HOME="$HOME/.cache"
 #export XDG_RUNTIME_DIR=
 
+# Language options
+export LANG=de_DE.UTF-8
+export LC_MESSAGES=en_US.UTF-8
+
 # Zsh
 export ZSH="${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-zsh"
 export ZSH_CUSTOM="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
@@ -35,7 +39,7 @@ export ANDROID_HOME="$HOME/Android/Sdk"
 export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.local/share/cargo/bin:$HOME/.cargo/bin:$NPM_PACKAGES/bin:/opt/cuda/bin:/usr/bin/sbin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
 
 # Java options
-export JAVA_HOME='/usr/lib/jvm/java-11-openjdk'
+export JAVA_HOME='/usr/lib/jvm/default'
 # WARNING: I have observed the _JAVA_OPTIONS variable causing some very weird crashes while
 # building some gradle libraries and it generally seems to be unsupported. When you need to use it, consider
 # setting it only for a particular program (e.g. put it into the .desktop file of the program).
@@ -55,7 +59,7 @@ export GTK_USE_PORTAL=1 # Needs xdg-portal-kde package to work
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1 # Fix sizing problems
 
 # Because Libreoffice looks shit in high dpi currently without this
-SAL_USE_VCLPLUGIN=gtk3
+#export SAL_USE_VCLPLUGIN=gtk3
 
 # Expermimental Qt highdpi options (>=Qt 6.4)
 #export QT_WIDGETS_HIGHDPI_DOWNSCALE=1

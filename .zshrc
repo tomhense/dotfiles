@@ -111,5 +111,7 @@ konsole-auto-darkmode() {
 		fi
 	fi
 }
-konsole-auto-darkmode
+#konsole-auto-darkmode
 
+export QT_LOGGING_RULES="kwin_*.debug=true"
+export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"

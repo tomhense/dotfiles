@@ -145,6 +145,10 @@ let g:Tex_IgnoreLevel = 8
 "let g:rehash256 = 1 " Alternative molokai color scheme
 let g:onedark_termcolors = 256
 
+" Set default colorscheme and background
+set background=dark
+colorscheme molokai
+
 " Auto darkmode
 function AutoDarkmode()
 	if trim(system('tput colors')) == "256" || empty($TERM)
@@ -158,7 +162,7 @@ function AutoDarkmode()
 	endif
 endfunction
 command AutoDarkmode :call AutoDarkmode() 
-call AutoDarkmode()
+"call AutoDarkmode()
 
 
 " --------- Keyboard shortcuts -----------
