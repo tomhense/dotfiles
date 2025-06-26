@@ -1,7 +1,6 @@
 alias qr='qrencode -t utf8 -o -'
 alias publicip='curl -s ifconfig.me'
 alias whereami='curl -s ifconfig.es/geo'
-alias journalctlclear='sudo journalctl --vacuum-time=1d'
 alias xclip='xclip -selection clipboard'
 alias localip="ip address | grep -Po '192\.168\.\d{1,3}\.\d{1,3}' | grep -Pv '\.255$'"
 alias writetopdf='writetopdf -s 1.6'
@@ -71,9 +70,6 @@ alias firefox=firefox-developer-edition
 
 # Use better jdupes (better fork) instead of fdupes
 #alias fdupes=jdupes
-
-# Clean history
-alias history-nsfw-filter="grep -iPv 'nsfwalbum|pornhub|porndig|eporner|porntrex|xhamster|yt-dlp|ytdlp|gallery-dl|instaloader' ~/.zsh_history > ~/.zsh_history.tmp && env mv ~/.zsh_history.tmp ~/.zsh_history"
 
 # Use sudo -E vi instead of sudoedit
 alias sudoedit="sudo -E vi"
