@@ -61,6 +61,10 @@ alias yaylist='pacman -Qm'
 # Youtube-dl
 alias yt-dlp-subs="yt-dlp --write-sub --sub-format best --sub-lang en,de --embed-subs"
 alias youtube-dl='yt-dlp'
+yt-dlp-iframe() {
+	IFRAME_URL="$(curl -s "$1" | htmlq iframe -a src)"
+	yt-dlp "$IFRAME_URL" -o "$(basename "$1").mp4"
+}
 
 # yadm
 alias yadmst='yadm status'

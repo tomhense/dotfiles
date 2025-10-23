@@ -8,6 +8,10 @@ if [ "$DISTRO" = 'arch' ]; then plugins+=(archlinux); fi
 
 # Which theme to choose (best: lambda, lambda-custom, simple)
 ZSH_THEME="lambda-custom"
+if [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_CLIENT" ]]; then
+	ZSH_THEME="simple"
+fi
+
 
 # Uncomment the following line to use case-sensitive completion.
 #CASE_SENSITIVE="true"
@@ -59,6 +63,9 @@ setopt HIST_VERIFY               # Do not execute immediately upon history expan
 # Load oh-my-zsh (position of this line in .zshrc is not arbitary)
 source $ZSH/oh-my-zsh.sh
 
+# Set updater frequency to 60 days
+zstyle ':omz:update' frequency 60
+
 # Use vim keybindings
 bindkey -v
 export KEYTIMEOUT=1
@@ -95,7 +102,18 @@ zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
 
 # Use mcfly for command history
-eval "$(mcfly init zsh)"
+export MCFLY_TIMEOUT=${MCFLY_TIMEOUT:-1m}
+# Load McFly initialization, but inject timeout wrappers dynamically
+eval "$(
+  mcfly init zsh |
+    awk -v t="$MCFLY_TIMEOUT" '
+      /\$MCFLY_PATH/ {
+        sub(/\$MCFLY_PATH/, "timeout " t " $MCFLY_PATH")
+      }
+      { print }
+    '
+)"
+
 
 source "$HOME/.aliases"
 
