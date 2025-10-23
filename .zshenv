@@ -26,11 +26,12 @@ if [ -d ~/perl5 ]; then
 fi
 
 # McFly options
-export MCFLY_RESULTS=50
-export MCFLY_RESULTS_SORT=LAST_RUN
-export MCFLY_DISABLE_MENU=TRUE
-export MCFLY_FUZZY=0
+export MCFLY_RESULTS=30
+#export MCFLY_RESULTS_SORT=LAST_RUN
+export MCFLY_DISABLE_MENU=FALSE
+#export MCFLY_FUZZY=0
 export MCFLY_KEY_SCHEME=vim
+export MCFLY_DELETE_WITHOUT_CONFIRM=true
 
 # Android
 export ANDROID_HOME="$HOME/Android/Sdk"
