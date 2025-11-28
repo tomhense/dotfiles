@@ -81,6 +81,9 @@ export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 export WLR_NO_HARDWARE_CURSORS=1
 
+# Python UV
+export UV_LINK_MODE=copy
+
 # Force XDG conventions
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wgetrc"
 export WINEPREFIX="${XDG_DATA_HOME:-$HOME/.local/share}/wineprefixes/default"

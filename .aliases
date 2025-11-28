@@ -77,3 +77,7 @@ alias firefox=firefox-developer-edition
 
 # Use sudo -E vi instead of sudoedit
 alias sudoedit="sudo -E vi"
+
+waypipe-schwan() {
+	waypipe --no-gpu ssh schwan env QT_QPA_PLATFORM=wayland ELECTRON_OZONE_PLATFORM_HINT=wayland GDK_BACKEND=wayland $1
+}
