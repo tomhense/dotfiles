@@ -181,5 +181,5 @@ nnoremap <F3> :NERDTreeToggle<CR>
 tnoremap <Esc> <C-\><C-n>  " Use esc to exit terminal mode
 
 " Execute lua scripts
-lua require("lsp")
+"lua require("lsp")
 
