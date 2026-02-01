@@ -19,6 +19,3 @@
 [submodule "scripts"]
 	path = scripts
 	url = git@github.com:Codedotexe/scripts.git
-[submodule "cheatsheets"]
-	path = cheatsheets
-	url = git@github.com:Codedotexe/cheatsheets.git

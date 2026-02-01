@@ -14,10 +14,13 @@
 --fragment-retries 30
 
 # Store fragments in a temporary directory
---paths temp:~/.cache/yt-dlp
+#--paths temp:~/.cache/yt-dlp
 
 # Don't continue partially downloaded fragments (instead redownload them)
 --no-part
+
+# Enable js challanges (deno)
+--remote-components ejs:github
 
 # Load cookies
 --cookies-from-browser firefox

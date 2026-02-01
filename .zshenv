@@ -12,6 +12,7 @@ export LC_MESSAGES=en_US.UTF-8
 # Zsh
 export ZSH="${XDG_DATA_HOME:-$HOME/.local/share}/oh-my-zsh"
 export ZSH_CUSTOM="${XDG_CONFIG_HOME:-$HOME/.config}/zsh"
+export ZSH_TMUX_CONFIG="${XDG_CONFIG_HOME:-$HOME/.config}/tmux/tmux.conf"
 if [ -f /etc/os-release ]; then
 	export DISTRO="$(awk -F'=' '/^ID/ { print $2 }' /etc/os-release)"
 fi
@@ -102,3 +103,5 @@ export GOPATH="${XDG_DATA_HOME:-$HOME/.local/share}/go"
 export GOMODCACHE="${XDG_CACHE_HOME:-$HOME/.cache}/go/mod"
 export DVDCSS_CACHE="${XDG_DATA_HOME:-$HOME/.local/share}/dvdcss"
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
+export CODEX_HOME="$XDG_CONFIG_HOME"/codex
+
