@@ -1,46 +1,12 @@
-# Which plugins would you like to load?
-plugins=(git common-aliases zsh-autosuggestions zsh-syntax-highlighting autojump \
-zsh-tmux-rename tmux zsh-cursor-mode zsh-completions colorize colored-man-pages \
-extract isodate pip copypath fzf bd)
-
-# Activate certain plugins only when distro is arch
-if [ "$DISTRO" = 'arch' ]; then plugins+=(archlinux); fi
-
-# Which theme to choose (best: lambda, lambda-custom, simple)
-ZSH_THEME="lambda-custom"
-if [[ -n "$SSH_CONNECTION" ]] || [[ -n "$SSH_CLIENT" ]]; then
-	ZSH_THEME="simple"
-fi
-
-
-# Uncomment the following line to use case-sensitive completion.
-#CASE_SENSITIVE="true"
-
-# Uncomment the following line to automatically update without prompting.
-DISABLE_UPDATE_PROMPT="false"
-
-# Uncomment the following line to enable command auto-correction.
-#ENABLE_CORRECTION="true"
-
-# Uncomment the following line to display red dots whilst waiting for completion.
-COMPLETION_WAITING_DOTS="true"
-
-# tmux plugin options
-ZSH_TMUX_AUTOSTART=false
-ZSH_TMUX_UNICODE=true
-
-# Disable loading of magic functions (disables url-quote-magic)
-# Stop urls getting escaped when pasting them inside quotes but unfortunatly also when pasting them outside of quotes
-DISABLE_MAGIC_FUNCTIONS=true 
+#zmodload zsh/zprof
 
 # Enable zsh directory stack
-alias d='dirs -v'
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
 setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
 
 # Enable recursive globs (e.g. **.txt)
-setopt globstarshort
+setopt GLOB_STAR_SHORT
 
 # Enable completion
 autoload -U compinit; compinit
@@ -49,26 +15,16 @@ autoload -U compinit; compinit
 HISTSIZE=10000
 SAVEHIST=10000
 HISTFILE="$HOME/.zsh_history"
-setopt appendhistory
+setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-setopt SHARE_HISTORY             # Share history between all sessions.
-#setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
 setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
 #setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
-#setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-#setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
-#setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
 
-# Load oh-my-zsh (position of this line in .zshrc is not arbitary)
-source $ZSH/oh-my-zsh.sh
-
-# Set updater frequency to 60 days
-zstyle ':omz:update' frequency 60
+# Move to directories without cd
+setopt AUTO_CD
 
 # Use vim keybindings
 bindkey -v
-export KEYTIMEOUT=1
 
 # Further keybindgs
 zmodload zsh/complist
@@ -96,10 +52,52 @@ for km in viopp visual; do
 	done
 done
 
+# Change cursor based on vim mode
+source "$HOME/.config/zsh/plugins/zsh-cursor-mode/zsh-cursor-mode.zsh"
+
+# Disable colors if we are in cool-retro-term
+if [ -e "$COLORSCHEMES_DIR" ]; then
+	export TERM='xterm-mono'
+fi
+
+
+# Pure zsh "lambda" style theme
+autoload -Uz add-zsh-hook vcs_info
+setopt prompt_subst
+
+# Run vcs_info before displaying each prompt
+add-zsh-hook precmd vcs_info
+
+# --- vcs_info configuration ---
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git*' check-for-changes true
+zstyle ':vcs_info:git*' formats '%b%u%c'
+zstyle ':vcs_info:git*' actionformats '%b|%a'
+zstyle ':vcs_info:git*+set-message:*' hooks git-st git-staged
+
+# Change indicators
+zstyle ':vcs_info:git*' unstagedstr '%F{11}✗%f'
+zstyle ':vcs_info:git*' stagedstr '%F{10}+%f'
+
+if [ $(tput colors 2>/dev/null) -lt 8 ]; then
+	PROMPT='%(?.%%.%%) %2~ '
+	RPROMPT='$( [[ -n ${vcs_info_msg_0_} ]] && print -n "git:(${vcs_info_msg_0_})" )'
+else
+	PROMPT='%(?.%F{green}%%%f.%F{red}%%%f) %F{cyan}%2~%f '
+	RPROMPT='$( [[ -n ${vcs_info_msg_0_} ]] && print -n "%F{blue}git:(%F{red}${vcs_info_msg_0_}%F{blue})%f" )'
+fi
+
+
 # Enable editing command in external command when in Normal mode and pressing v
 autoload -Uz edit-command-line
 zle -N edit-command-line
 bindkey -M vicmd v edit-command-line
+
+# Load aliases
+source "$HOME/.aliases"
+
+# Set up zoxide to move between folders efficiently
+eval "$(zoxide init zsh)"
 
 # Use mcfly for command history
 export MCFLY_TIMEOUT=${MCFLY_TIMEOUT:-1m}
@@ -115,21 +113,29 @@ eval "$(
 )"
 
 
-source "$HOME/.aliases"
+# ZSH Autosuggest
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+source "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
 
-# Enable auto darkmode when using konsole
-konsole-auto-darkmode() {
-	if [ "$KONSOLE_DBUS_WINDOW" ]; then
-		if [ "$(detect-darkmode)" = 'light' ]; then
-			konsoleprofile Colorscheme=BlackOnWhiteFixed
-			export MCFLY_LIGHT=TRUE
-		else
-			konsoleprofile Colorscheme=MonokaiKonsole
-			export MCFLY_LIGHT=FALSE
+if [ $(tput colors 2>/dev/null) -ge 8 ]; then # Only load when we have color support
+	# Load zsh-syntax-highlighting (must be loaded at the bottom)
+	source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# Tmux
+ZSH_TMUX_AUTOSTART=false
+ZSH_TMUX_AUTOQUIT=false
+
+if [[ -z "$TMUX" && "$ZSH_TMUX_AUTOSTART" == "true" && -z "$VIM" && -z "$ZED_TERM" && "$TERM_PROGRAM" != 'vscode' ]]; then
+	if [[ "$ZSH_TMUX_AUTOSTARTED" != "true" ]]; then
+		export ZSH_TMUX_AUTOSTARTED=true
+		command tmux attach || command tmux new
+
+		if [[ "$ZSH_TMUX_AUTOQUIT" == "true" ]]; then
+			exit
 		fi
 	fi
-}
-#konsole-auto-darkmode
+fi
 
-export QT_LOGGING_RULES="kwin_*.debug=true"
-export DEBUGINFOD_URLS="https://debuginfod.archlinux.org"
+#zprof

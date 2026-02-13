@@ -104,4 +104,6 @@ export GOMODCACHE="${XDG_CACHE_HOME:-$HOME/.cache}/go/mod"
 export DVDCSS_CACHE="${XDG_DATA_HOME:-$HOME/.local/share}/dvdcss"
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 export CODEX_HOME="$XDG_CONFIG_HOME"/codex
+export KDEHOME="${XDG_CONFIG_HOME:-$HOME/.config}/kde"
+
 

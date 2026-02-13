@@ -5,13 +5,6 @@ cd "$HOME" || { echo 'Changing into home directory failed' >&2 ; exit 1 ;}
 echo 'Init submodules'
 yadm submodule update --recursive --init
 
-# Install oh-my-zsh (only if current shell is ZSH)
-echo 'Installing oh-my-zsh'
-if [ ! "$ZSH" ]; then
-	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
-	mv ~/.oh-my-zsh "${XDG_DATA_HOME:-$HOME/.local/share}"
-fi
-
 # Install mpv scripts
 mkdir ~/.config/mpv
 mkdir ~/.config/mpv/scripts
@@ -30,10 +23,3 @@ curl --output-dir ~/.config/mpv/scripts 'https://raw.githubusercontent.com/zc62/
 curl --output-dir ~/.config/mpv/script-modules 'https://raw.githubusercontent.com/CogentRedTester/mpv-scroll-list/master/scroll-list.lua'
 curl --output-dir ~/.config/mpv/script-modules 'https://raw.githubusercontent.com/CogentRedTester/mpv-user-input/master/user-input-module.lua'
 curl --output-dir ~/.config/mpv/scripts 'https://raw.githubusercontent.com/CogentRedTester/mpv-search-page/master/search-page.lua'
-
-# Install mpv shaders
-mkdir ~/.config/mpv/shaders
-curl --output-dir ~/.config/mpv/shaders 'https://gist.githubusercontent.com/igv/2364ffa6e81540f29cb7ab4c9bc05b6b/raw/15d93440d0a24fc4b8770070be6a9fa2af6f200b/SSimSuperRes.glsl'
-curl --output-dir ~/.config/mpv/shaders 'https://gist.githubusercontent.com/agyild/7e8951915b2bf24526a9343d951db214/raw/05f00864228871ffd157daa9beb2db8fa7412cfa/NVSharpen.glsl'
-curl --output-dir ~/.config/mpv/shaders 'https://gist.githubusercontent.com/agyild/7e8951915b2bf24526a9343d951db214/raw/05f00864228871ffd157daa9beb2db8fa7412cfa/NVScaler.glsl'
-

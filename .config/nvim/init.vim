@@ -147,7 +147,15 @@ let g:onedark_termcolors = 256
 
 " Set default colorscheme and background
 set background=dark
-colorscheme molokai
+
+" Check if terminal and Neovim support colors
+if system('tput colors') >= 8
+	set termguicolors
+	colorscheme molokai
+else
+	let s:t_co = 0
+	set notermguicolors
+endif
 
 " Auto darkmode
 function AutoDarkmode()
