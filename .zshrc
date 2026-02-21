@@ -1,5 +1,3 @@
-#zmodload zsh/zprof
-
 # Enable zsh directory stack
 setopt AUTO_PUSHD           # Push the current directory visited on the stack.
 setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
@@ -29,13 +27,6 @@ bindkey -v
 # Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
 export KEYTIMEOUT=1
 
-# Further keybindgs
-zmodload zsh/complist
-bindkey -M menuselect 'h' vi-backward-char
-bindkey -M menuselect 'k' vi-up-line-or-history
-bindkey -M menuselect 'l' vi-forward-char
-bindkey -M menuselect 'j' vi-down-line-or-history
-
 # Fix vi mode insert mode backspace
 bindkey "^?" backward-delete-char
 bindkey "^H" backward-delete-char 
@@ -60,38 +51,11 @@ for km in viopp visual; do
 done
 
 # Change cursor based on vim mode
-source "$HOME/.config/zsh/plugins/zsh-cursor-mode/zsh-cursor-mode.zsh"
+#source "$HOME/.config/zsh/plugins/zsh-cursor-mode/zsh-cursor-mode.zsh"
 
 # Disable colors if we are in cool-retro-term
 if [ -e "$COLORSCHEMES_DIR" ]; then
 	export TERM='xterm-mono'
-fi
-
-
-# Pure zsh "lambda" style theme
-autoload -Uz add-zsh-hook vcs_info
-setopt prompt_subst
-
-# Run vcs_info before displaying each prompt
-add-zsh-hook precmd vcs_info
-
-# --- vcs_info configuration ---
-zstyle ':vcs_info:*' enable git
-zstyle ':vcs_info:git*' check-for-changes true
-zstyle ':vcs_info:git*' formats '%b%u%c'
-zstyle ':vcs_info:git*' actionformats '%b|%a'
-zstyle ':vcs_info:git*+set-message:*' hooks git-st git-staged
-
-# Change indicators
-zstyle ':vcs_info:git*' unstagedstr '%F{11}✗%f'
-zstyle ':vcs_info:git*' stagedstr '%F{10}+%f'
-
-if [ $(tput colors 2>/dev/null) -lt 8 ]; then
-	PROMPT='%(?.%%.%%) %2~ '
-	RPROMPT='$( [[ -n ${vcs_info_msg_0_} ]] && print -n "git:(${vcs_info_msg_0_})" )'
-else
-	PROMPT='%(?.%F{green}%%%f.%F{red}%%%f) %F{cyan}%2~%f '
-	RPROMPT='$( [[ -n ${vcs_info_msg_0_} ]] && print -n "%F{blue}git:(%F{red}${vcs_info_msg_0_}%F{blue})%f" )'
 fi
 
 
@@ -119,21 +83,9 @@ eval "$(
     '
 )"
 
-
-# ZSH Autosuggest
-ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
-ZSH_AUTOSUGGEST_USE_ASYNC=1
-source "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
-
-if [ $(tput colors 2>/dev/null) -ge 8 ]; then # Only load when we have color support
-	# Load zsh-syntax-highlighting (must be loaded at the bottom)
-	source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
-fi
-
 # Tmux
 ZSH_TMUX_AUTOSTART=false
 ZSH_TMUX_AUTOQUIT=false
-
 if [[ -z "$TMUX" && "$ZSH_TMUX_AUTOSTART" == "true" && -z "$VIM" && -z "$ZED_TERM" && "$TERM_PROGRAM" != 'vscode' ]]; then
 	if [[ "$ZSH_TMUX_AUTOSTARTED" != "true" ]]; then
 		export ZSH_TMUX_AUTOSTARTED=true
@@ -145,4 +97,15 @@ if [[ -z "$TMUX" && "$ZSH_TMUX_AUTOSTART" == "true" && -z "$VIM" && -z "$ZED_TER
 	fi
 fi
 
-#zprof
+# ZSH Autosuggest
+ZSH_AUTOSUGGEST_BUFFER_MAX_SIZE="20"
+ZSH_AUTOSUGGEST_USE_ASYNC=1
+source "$HOME/.config/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+
+if [ $(tput colors 2>/dev/null) -ge 8 ]; then # Only load when we have color support
+	# Load zsh-syntax-highlighting (must be loaded at the bottom)
+	source "$HOME/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
+
+# Load starship prompt
+eval "$(starship init zsh)"
