@@ -26,12 +26,19 @@ setopt AUTO_CD
 # Use vim keybindings
 bindkey -v
 
+# Make Vi mode transitions faster (KEYTIMEOUT is in hundredths of a second)
+export KEYTIMEOUT=1
+
 # Further keybindgs
 zmodload zsh/complist
 bindkey -M menuselect 'h' vi-backward-char
 bindkey -M menuselect 'k' vi-up-line-or-history
 bindkey -M menuselect 'l' vi-forward-char
 bindkey -M menuselect 'j' vi-down-line-or-history
+
+# Fix vi mode insert mode backspace
+bindkey "^?" backward-delete-char
+bindkey "^H" backward-delete-char 
 
 # Enable C-w vim keybinding
 autoload -U select-word-style
