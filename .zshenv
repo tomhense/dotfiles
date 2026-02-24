@@ -69,6 +69,9 @@ export EDITOR=nvim
 # User nvim as the man pager
 export MANPAGER='nvim +Man\!'
 
+# Journalctl better less
+export SYSTEMD_LESS='FRXMK'
+
 # Other
 export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
