@@ -9,15 +9,6 @@ export XDG_CACHE_HOME="$HOME/.cache"
 export LANG=de_DE.UTF-8
 export LC_MESSAGES=en_US.UTF-8
 
-# Perl
-if [ -d ~/perl5 ]; then
-	export PERL5LIB="$HOME/perl5/lib/perl5${PERL5LIB:+:${PERL5LIB}}"
-	export PERL_LOCAL_LIB_ROOT="$HOME/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROOT}}"
-	export PERL_MB_OPT="--install_base \"$HOME/perl5\""
-	export PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"
-	export PATH="$PATH:$HOME/perl5/bin"
-fi
-
 # McFly options
 export MCFLY_RESULTS=30
 #export MCFLY_RESULTS_SORT=LAST_RUN
@@ -30,7 +21,7 @@ export MCFLY_DELETE_WITHOUT_CONFIRM=true
 export ANDROID_HOME="$HOME/Android/Sdk"
 
 # Path
-export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.local/share/cargo/bin:$HOME/.cargo/bin:$NPM_PACKAGES/bin:/opt/cuda/bin:/usr/bin/sbin:$ANDROID_HOME/emulator:$ANDROID_HOME/platform-tools:$PATH"
+export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.local/share/cargo/bin:/opt/cuda/bin:$PATH"
 
 # Java options
 export JAVA_HOME='/usr/lib/jvm/default'
@@ -41,13 +32,10 @@ export JAVA_HOME='/usr/lib/jvm/default'
 
 # Firefox
 export MOZ_ENABLE_WAYLAND=1
-#export MOZ_USE_XINPUT2=1 # Enhance touchpad scrolling on X11
 
 # Plasma options
 #export KWIN_DRM_DISABLE_TRIPLE_BUFFERING=1
-#export POWERDEVIL_NO_DDCUTIL=1 # Fix powerdevil bug
 #export GDK_DPI_SCALE=1.25
-#export PLASMA_USE_QT_SCALING=1 # For 4K monitor
 export GTK_USE_PORTAL=1 # Needs xdg-portal-kde package to work
 #export __GL_MaxFramesAllowed=1 # Fix tearing
 #export QT_AUTO_SCREEN_SCALE_FACTOR=1 # Fix sizing problems
@@ -77,8 +65,10 @@ export MOZ_PLUGIN_PATH="/usr/lib/mozilla/plugins"
 export SSH_AUTH_SOCK=~/.ssh/ssh-agent.sock
 export WLR_NO_HARDWARE_CURSORS=1
 
-# Python UV
-export UV_LINK_MODE=copy
+# KDE
+# Wayland session restore https://bugs.kde.org/show_bug.cgi?id=15329
+export QT_WAYLAND_ENABLE_XX_SESSION_MANAGER=1
+export KWIN_WAYLAND_SUPPORT_XX_SESSION_MANAGER=1
 
 # Force XDG conventions
 export WGETRC="${XDG_CONFIG_HOME:-$HOME/.config}/wgetrc"
@@ -100,5 +90,4 @@ export DVDCSS_CACHE="${XDG_DATA_HOME:-$HOME/.local/share}/dvdcss"
 export PARALLEL_HOME="${XDG_CONFIG_HOME:-$HOME/.config}/parallel"
 export CODEX_HOME="$XDG_CONFIG_HOME"/codex
 export KDEHOME="${XDG_CONFIG_HOME:-$HOME/.config}/kde"
-
 
