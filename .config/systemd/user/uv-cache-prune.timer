@@ -1,0 +1,10 @@
+[Unit]
+Description=Run uv cache prune every 4 weeks
+
+[Timer]
+OnCalendar=monthly
+AccuracySec=12h
+Persistent=true
+
+[Install]
+WantedBy=timers.target

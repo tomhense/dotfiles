@@ -1,0 +1,5 @@
+[Unit]
+Description=IRB VPN Reminder
+
+[Service]
+ExecStart=%h/scripts/vpn-reminder IRB

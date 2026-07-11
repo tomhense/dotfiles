@@ -1,0 +1,6 @@
+[Unit]
+Description=Prune uv cache
+
+[Service]
+Type=oneshot
+ExecStart=uv cache prune
