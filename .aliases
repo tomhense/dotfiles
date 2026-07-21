@@ -37,7 +37,6 @@ alias watch='/usr/bin/env watch'
 # Package manager
 alias pacmanlist='pacman -Q'
 alias pacmanlistmanual='pacman -Qe'
-alias yayclear='yay -Sc --aur'
 alias yaylist='pacman -Qm'
 
 # Youtube-dl

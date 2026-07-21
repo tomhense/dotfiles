@@ -21,7 +21,7 @@ export MCFLY_DELETE_WITHOUT_CONFIRM=true
 export ANDROID_HOME="$HOME/Android/Sdk"
 
 # Path
-export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.local/share/cargo/bin:/opt/cuda/bin:$PATH"
+export PATH="$HOME/.local/bin:$HOME/scripts:$HOME/.local/share/cargo/bin:$HOME/.local/share/go/bin:/opt/cuda/bin:$PATH"
 
 # Java options
 export JAVA_HOME='/usr/lib/jvm/default'
