@@ -67,9 +67,6 @@ waypipe-schwan() {
 	waypipe --no-gpu ssh schwan env QT_QPA_PLATFORM=wayland ELECTRON_OZONE_PLATFORM_HINT=wayland GDK_BACKEND=wayland $@
 }
 
-# zoxide
-command -v zoxide >/dev/null && alias j='__zoxide_z "$@"'
-
 # Git
 alias gpu='git push upstream'
 alias grb='git rebase'

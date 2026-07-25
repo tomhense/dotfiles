@@ -85,8 +85,9 @@ Plug("tpope/vim-surround")
 Plug("brennier/quicktex")
 Plug("mbbill/undotree")
 Plug("scrooloose/nerdcommenter")
-Plug("junegunn/fzf", { ["do"] = function() fn["fzf#install"]() end })
-Plug("junegunn/fzf.vim")
+Plug('nvim-lua/plenary.nvim')
+Plug("nvim-telescope/telescope.nvim")
+Plug('nvim-telescope/telescope-fzf-native.nvim')
 Plug("jasonccox/vim-wayland-clipboard")
 Plug("NLKNguyen/papercolor-theme")
 Plug("peterhoeg/vim-qml")
@@ -100,7 +101,9 @@ vim.call("plug#end")
 ------------------------------------------------------------
 
 -- Neoscroll
-require("neoscroll").setup()
+if not vim.g.neovide then
+	require("neoscroll").setup()
+end
 
 -- Nerdtree
 g.NERDTreeMapOpenInTab = "<ENTER>"
@@ -128,7 +131,7 @@ g.Tex_IgnoreLevel = 8
 
 g.onedark_termcolors = 256
 
-if tonumber(fn.system("tput colors")) >= 8 then
+if vim.g.neovide or tonumber(fn.system("tput colors")) >= 8 then
   opt.termguicolors = true
   cmd("colorscheme molokai")
 else
@@ -155,3 +158,26 @@ end
 api.nvim_create_user_command("AutoDarkmode", AutoDarkmode, {})
 -- Uncomment next line if you want to run automatically:
 -- AutoDarkmode()
+
+
+-- Neovide
+if vim.g.neovide then
+	--vim.g.neovide_position_animation_length = 0
+	vim.g.neovide_cursor_animation_length = 0.00
+	vim.g.neovide_cursor_trail_size = 0
+	vim.g.neovide_cursor_animate_in_insert_mode = false
+	vim.g.neovide_cursor_animate_command_line = false
+	vim.g.neovide_scroll_animation_far_lines = 100
+	--vim.g.neovide_scroll_animation_length = 0.5
+	vim.g.neovide_theme = 'auto'
+	vim.o.guifont = "Source Code Pro:h12"
+	vim.g.neovide_scale_factor = 1.0
+
+	vim.keymap.set({ "n", "i", "v", "t" }, "<C-ScrollWheelUp>", function()
+		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor + 0.1
+	end, { silent = true })
+
+	vim.keymap.set({ "n", "i", "v", "t" }, "<C-ScrollWheelDown>", function()
+		vim.g.neovide_scale_factor = vim.g.neovide_scale_factor - 0.1
+	end, { silent = true })
+end

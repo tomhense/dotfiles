@@ -10,7 +10,7 @@ export LANG=de_DE.UTF-8
 export LC_MESSAGES=en_US.UTF-8
 
 # McFly options
-export MCFLY_RESULTS=30
+export MCFLY_RESULTS=1000
 #export MCFLY_RESULTS_SORT=LAST_RUN
 export MCFLY_DISABLE_MENU=FALSE
 #export MCFLY_FUZZY=0
