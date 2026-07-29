@@ -17,6 +17,9 @@ export MCFLY_DISABLE_MENU=FALSE
 export MCFLY_KEY_SCHEME=vim
 export MCFLY_DELETE_WITHOUT_CONFIRM=true
 
+# UV
+UV_NO_MANAGED_PYTHON=true
+
 # Android
 export ANDROID_HOME="$HOME/Android/Sdk"
 
