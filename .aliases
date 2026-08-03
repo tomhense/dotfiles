@@ -161,3 +161,6 @@ alias c=clear
 # Tmux
 alias tm='tmux attach || tmux new'
 
+# Codex
+alias codex='firejail --whitelist="${PWD}" codex'
+
