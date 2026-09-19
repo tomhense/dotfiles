@@ -1,0 +1,3 @@
+noblacklist /media
+ignore include disable-programs.inc
+

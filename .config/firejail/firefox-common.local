@@ -1,0 +1,26 @@
+#include whitelist-runuser-common.inc
+dbus-user.talk org.freedesktop.portal.Desktop
+whitelist ${HOME}/Vaults
+
+# Add the next line to firefox-common.local to enable native notifications.
+dbus-user.talk org.freedesktop.Notifications
+# Add the next line to firefox-common.local to allow inhibiting screensavers.
+dbus-user.talk org.freedesktop.ScreenSaver
+# Add the next line to firefox-common.local to allow media playback control through mpris.
+dbus-user.own org.mpris.MediaPlayer2.firefox.*
+# Add the next lines to firefox-common.local for plasma browser integration.
+dbus-user.own org.mpris.MediaPlayer2.plasma-browser-integration
+dbus-user.talk org.kde.JobViewServer
+dbus-user.talk org.kde.kdeconnect
+dbus-user.talk org.kde.kuiserver
+# Add the next line to firefox-common.local to allow screensharing under Wayland.
+dbus-user.talk org.freedesktop.portal.Desktop
+
+# To enable support for the KeePassXC extension, add the following lines to
+# firefox-common.local.
+# Note: Start KeePassXC before the web browser and keep it open to allow
+# communication between them.
+noblacklist ${RUNUSER}/app
+whitelist ${RUNUSER}/app/org.keepassxc.KeePassXC
+whitelist ${RUNUSER}/kpxc_server
+whitelist ${RUNUSER}/org.keepassxc.KeePassXC.BrowserServer

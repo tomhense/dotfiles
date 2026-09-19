@@ -50,9 +50,6 @@ for km in viopp visual; do
 	done
 done
 
-# Change cursor based on vim mode
-#source "$HOME/.config/zsh/plugins/zsh-cursor-mode/zsh-cursor-mode.zsh"
-
 # Disable colors if we are in cool-retro-term
 if [ -e "$COLORSCHEMES_DIR" ]; then
 	export TERM='xterm-mono'

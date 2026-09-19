@@ -1,0 +1,12 @@
+ignore private-etc @tls-ca
+whitelist /etc/ca-certificates/trust-source
+
+# Allow talking to kwallet
+dbus-user.talk org.kde.kwalletd5
+dbus-user.talk org.kde.kwalletd6
+
+# Enable tray icon (potential sandbox escape)
+#dbus-user.talk org.kde.StatusNotifierWatcher 
+#dbus-user.own org.freedesktop.StatusNotifierItem-*
+#dbus-user.own org.freedesktop.StatusNotifierItem-27-1
+#dbus-user.own org.freedesktop.*

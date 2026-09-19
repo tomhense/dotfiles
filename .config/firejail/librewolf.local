@@ -1,0 +1,8 @@
+ignore private-etc
+whitelist /etc/resolv.conf
+whitelist /etc/nsswitch.conf
+whitelist /etc/hosts
+whitelist /etc/fonts
+
+noblacklist /media
+whitelist /media/hdd/NSFW

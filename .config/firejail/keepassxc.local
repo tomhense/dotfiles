@@ -1,0 +1,25 @@
+noblacklist /media
+
+
+mkdir ${HOME}/Documents/KeePassXC
+whitelist ${HOME}/Documents/KeePassXC
+
+# For keepass browser extension
+mkdir ${HOME}/.config/chromium/NativeMessagingHosts
+mkfile ${HOME}/.config/chromium/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json
+whitelist ${HOME}/.config/chromium/NativeMessagingHosts/org.keepassxc.keepassxc_browser.json
+mkdir ${HOME}/.config/mozilla/native-messaging-hosts
+mkdir ${HOME}/.mozilla/native-messaging-hosts
+mkfile ${HOME}/.config/mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
+mkfile ${HOME}/.mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
+whitelist ${HOME}/.config/mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
+whitelist ${HOME}/.mozilla/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
+mkdir ${HOME}/.librewolf/native-messaging-hosts
+mkfile ${HOME}/.librewolf/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
+whitelist ${HOME}/.librewolf/native-messaging-hosts/org.keepassxc.keepassxc_browser.json
+mkdir ${HOME}/.cache/keepassxc
+mkdir ${HOME}/.config/keepassxc
+whitelist ${HOME}/.cache/keepassxc
+whitelist ${HOME}/.config/keepassxc
+whitelist ${HOME}/.config/KeePassXCrc
+include whitelist-common.inc

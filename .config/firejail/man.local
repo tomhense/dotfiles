@@ -1,0 +1,20 @@
+ignore memory-deny-write-execute
+
+# Allow lua (blacklisted by disable-interpreters.inc)
+include allow-lua.inc
+
+noblacklist ${HOME}/.cache/nvim
+noblacklist ${HOME}/.config/nvim
+noblacklist ${HOME}/.local/share/nvim
+noblacklist ${HOME}/.local/state/nvim
+
+whitelist /usr/share/nvim
+
+# ignore entries from disable-common.inc
+ignore read-only ${HOME}/.local/share/nvim
+ignore read-only ${HOME}/.local/state/nvim
+
+read-write ${HOME}/.local/share/nvim
+read-write ${HOME}/.local/state/nvim
+
+restrict-namespaces
