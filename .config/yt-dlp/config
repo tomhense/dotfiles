@@ -19,8 +19,11 @@
 # Don't continue partially downloaded fragments (instead redownload them)
 --no-part
 
-# Enable js challanges (deno)
+# Enable js challanges
 --remote-components ejs:github
+
+# Use Node.js javascript runtime
+--js-runtimes node
 
 # Load cookies
 --cookies-from-browser firefox

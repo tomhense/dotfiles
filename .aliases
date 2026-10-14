@@ -163,7 +163,7 @@ alias tm='tmux attach || tmux new'
 
 # Codex
 if command -v firejail >/dev/null 2>&1; then
-	alias codex='firejail --whitelist="${PWD}" codex --dangerously-bypass-approvals-and-sandbox'
+	alias codex='firejail --whitelist="${PWD}" codex --dangerously-bypass-approvals-and-sandbox --no-daemon --dangerously-bypass-hook-trust'
 fi
 
 # Start codium in background when firejail is available
@@ -173,3 +173,5 @@ if command -v firejail >/dev/null 2>&1; then
 		disown
 	}
 fi
+
+command -v pnpm >/dev/null 2>&1 && alias npm=pnpm
