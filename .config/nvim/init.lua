@@ -131,7 +131,10 @@ g.Tex_IgnoreLevel = 8
 
 g.onedark_termcolors = 256
 
-if vim.g.neovide or tonumber(fn.system("tput colors")) >= 8 then
+local colors = tonumber(fn.system("tput colors"))
+local use_truecolor = vim.g.neovide or vim.g.vscode or (colors ~= nil and colors >= 8)
+
+if use_truecolor then
   opt.termguicolors = true
   cmd("colorscheme molokai")
 else

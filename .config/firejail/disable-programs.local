@@ -1,0 +1,2 @@
+blacklist ${HOME}/.local/share/tasks.org
+blacklist ${HOME}/.local/state/tasks.org

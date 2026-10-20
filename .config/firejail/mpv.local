@@ -1,5 +1,6 @@
 noblacklist /media
 whitelist /media/hdd
-ignore dbus-user none
-dbus-user filter
-dbus-user.own org.mpris.MediaPlayer2.mpv
+#noblacklist /home/tom/Vaults
+#whitelist /home/tom/Vaults/secret
+#ignore dbus-user filter
+#dbus-user none

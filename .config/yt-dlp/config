@@ -26,7 +26,7 @@
 --js-runtimes node
 
 # Load cookies
---cookies-from-browser firefox
+--cookies-from-browser firefox:~/.librewolf
 
 # Set output template and make filenames safe for windows
 #-o '%(title)s.%(ext)s'

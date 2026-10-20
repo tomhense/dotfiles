@@ -1,0 +1,8 @@
+noblacklist /media
+
+ignore read-only ${HOME}/.local/state/nvim
+
+noblacklist ${HOME}/.config/nvim
+noblacklist ${HOME}/.local/share/nvim
+noblacklist ${HOME}/.local/state/nvim
+noblacklist ${HOME}/.vim
