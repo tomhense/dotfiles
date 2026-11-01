@@ -101,7 +101,7 @@ vim.call("plug#end")
 ------------------------------------------------------------
 
 -- Neoscroll
-if not vim.g.neovide then
+if not vim.g.neovide or vim.g.vscode then
 	require("neoscroll").setup()
 end
 

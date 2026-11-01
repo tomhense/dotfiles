@@ -1,10 +1,21 @@
 ignore private-etc @tls-ca
 #whitelist /etc/ca-certificates/trust-source
 
-# Allow talking to kwallet
-dbus-user.talk org.kde.kwalletd5
-dbus-user.talk org.kde.kwalletd6
+# Replace the system profile's user-bus filter and grants with the
+# D-Bus names listed in the Flatpak manifest.
+ignore dbus-user filter
+ignore dbus-user.talk org.freedesktop.Notifications
+ignore dbus-user.talk org.mozilla.*
 
-# Enable tray icon (potential sandbox escape)
-?ALLOW_TRAY: dbus-user.talk org.kde.StatusNotifierWatcher
-?ALLOW_TRAY: dbus-user.own org.kde.*
+dbus-user filter
+#dbus-user.talk org.freedesktop.PowerManagement
+#dbus-user.talk org.freedesktop.ScreenSaver
+#dbus-user.talk org.gnome.SessionManager
+dbus-user.talk org.freedesktop.secrets
+dbus-user.talk org.kde.kwalletd6
+#dbus-user.talk com.canonical.AppMenu.Registrar
+#dbus-user.talk com.canonical.Unity
+#dbus-user.talk com.canonical.indicator.application
+#dbus-user.talk org.ayatana.indicator.application
+#dbus-user.talk org.gnome.Mutter.IdleMonitor
+dbus-user.talk org.kde.StatusNotifierWatcher

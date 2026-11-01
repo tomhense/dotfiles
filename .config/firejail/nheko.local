@@ -1,8 +1,10 @@
+ignore private-etc
+whitelist /etc/host.conf
+whitelist /etc/mime.types
+whitelist /etc/ssl
+whitelist /etc/resolv.conf
+whitelist /etc/nsswitch.conf
+whitelist /etc/ca-certificates
+
 # Allow talking to kwallet
-dbus-user.talk org.kde.kwalletd5
 dbus-user.talk org.kde.kwalletd6
-
-# Enable tray icon (potential sandbox escape)
-dbus-user.talk org.kde.StatusNotifierWatcher 
-dbus-user.own org.kde.*
-
