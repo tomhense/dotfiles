@@ -1,4 +1,8 @@
+blacklist ${HOME}/.cache/zed
+
 blacklist ${HOME}/.local/share/tasks.org
+blacklist ${HOME}/.local/share/zed
 blacklist ${HOME}/.local/state/tasks.org
 
 blacklist ${HOME}/.config/codex
+blacklist ${HOME}/.config/zed
