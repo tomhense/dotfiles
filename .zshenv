@@ -60,6 +60,9 @@ export EDITOR=nvim
 # User nvim as the man pager
 export MANPAGER='nvim +Man\!'
 
+# Use delta as pager
+export PAGER='delta'
+
 # Journalctl better less
 export SYSTEMD_LESS='FRXMK'
 
