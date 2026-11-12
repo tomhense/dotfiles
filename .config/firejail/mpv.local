@@ -1,6 +1,4 @@
 noblacklist /media
 whitelist /media/hdd
-#noblacklist /home/tom/Vaults
-#whitelist /home/tom/Vaults/secret
-#ignore dbus-user filter
-#dbus-user none
+noblacklist ${HOME}/Vaults
+whitelist ${HOME}/Vaults

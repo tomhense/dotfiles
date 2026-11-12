@@ -49,7 +49,6 @@ include disable-common.inc
 include disable-devel.inc
 include disable-programs.inc
 include disable-xdg.inc
-include disable-exec.inc
 include disable-proc.inc
 
 whitelist ${HOME}/.config/nvim
@@ -65,7 +64,5 @@ read-only ${HOME}/.gitconfig
 
 #private-bin codex,bash,sh,git,env,dirname,basename,readlink,find,grep,sed,awk,cat,cp,mv,rm,mkdir,tee,head,tail,wc,sort,tar,gzip,unzip,curl,python3,node,npm,uv,rustc,rustfmt,xz,zstd,rg,ls,stat
 
-dbus-user none
-dbus-system none
-
 seccomp
+restrict-namespaces
