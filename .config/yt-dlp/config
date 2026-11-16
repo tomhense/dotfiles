@@ -23,10 +23,10 @@
 --remote-components ejs:github
 
 # Use Node.js javascript runtime
---js-runtimes node
+#--js-runtimes node
 
 # Load cookies
---cookies-from-browser firefox:~/.librewolf
+#--cookies-from-browser firefox:~/.librewolf
 
 # Set output template and make filenames safe for windows
 #-o '%(title)s.%(ext)s'
@@ -37,7 +37,7 @@
 
 # Support netrc authentification using kwallet to store the credentials
 # In the kwallet create a folder named ytdlp and in that create entries with the name of the extractor, the value needs to be in the special netrc format (please consult the yt-dlp wiki)
---netrc-cmd 'kwallet-query -f ytdlp -r {} kdewallet'
+#--netrc-cmd 'kwallet-query -f ytdlp -r {} kdewallet'
 
 # Embed subtitles
 #--write-sub

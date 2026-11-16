@@ -36,6 +36,7 @@ include whitelist-var-common.inc
 
 keep-dev-ntsync
 
+net none
 caps.drop all
 #ipc-namespace
 netfilter
