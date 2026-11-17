@@ -2,3 +2,12 @@ noblacklist /media
 whitelist /media/hdd
 noblacklist ${HOME}/Vaults
 whitelist ${HOME}/Vaults
+
+# Harden
+read-only ${HOME}/.config/youtube-dl
+read-only ${HOME}/.config/yt-dlp
+read-only ${HOME}/.config/yt-dlp.conf
+read-only ${HOME}/yt-dlp.conf
+read-only ${HOME}/yt-dlp.conf.txt
+ignore whitelist ${HOME}/.netrc
+ignore whitelist ${HOME}/.dvdcss

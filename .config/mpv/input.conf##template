@@ -24,3 +24,6 @@ WHEEL_DOWN ignore
 WHEEL_LEFT ignore
 WHEEL_RIGHT ignore
 {% endif %}
+
+# Get old rightclick pause behavior (pre v0.42.0)
+MBTN_RIGHT cycle pause
