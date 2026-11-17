@@ -71,17 +71,7 @@ source "$HOME/.aliases"
 eval "$(zoxide init zsh)"
 
 # Use mcfly for command history
-export MCFLY_TIMEOUT=${MCFLY_TIMEOUT:-1m}
-# Load McFly initialization, but inject timeout wrappers dynamically
-eval "$(
-  mcfly init zsh |
-    awk -v t="$MCFLY_TIMEOUT" '
-      /\$MCFLY_PATH/ {
-        sub(/\$MCFLY_PATH/, "timeout " t " $MCFLY_PATH")
-      }
-      { print }
-    '
-)"
+eval "$(mcfly init zsh)"
 
 # Tmux
 ZSH_TMUX_AUTOSTART=false
